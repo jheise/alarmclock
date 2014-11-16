@@ -1,0 +1,15 @@
+<html>
+    <head>
+        <title>Alarm</title>
+    </head>
+    <body>
+        <div class="alarms"></div>
+        <div class="newalarms"></div>
+        <div class="running"></div>
+
+        <script type="text/javascript" src="/static/js/jquery-2.1.1.min.js"></script>
+        <script type="text/javascript" src="/static/js/alarm.js"></script>
+        <script type="text/javascript" src="/static/js/running.js"></script>
+        <script type="text/javascript" src="/static/js/full.js"></script>
+    </body>
+</html>

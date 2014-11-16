@@ -1,0 +1,76 @@
+<html>
+    <head>
+        <title>Alarm</title>
+	<link href="/css/bootstrap.css" rel="stylesheet" media="screen">
+    </head>
+    <body>
+	<nav class="navbar navbar-default" role="navigation">
+		<div class="navbar-header">
+		<a class="navbar-brand" href="#">Alarm</a>
+		</div>
+	</nav>
+	<ul class="nav nav-tabs" role="tablist">
+		<li class="active"><a href="#active" role="tab" data-toggle="tab">Active Alarms</a></li>
+		<li><a href="#current" role="tab" data-toggle="tab">Current Alarms</a></li>
+		<li><a href="#new-alarms" role="tab" data-toggle="tab">New Alarm</a></li>
+	</ul> 
+	<div class="tab-content">
+		<div class="running tab-pane active" id="active">
+			<div id="active-display">
+			</div>
+		</div>
+		<div class="alarms tab-pane" id="current">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Minute</th>
+                        <th>Hour</th>
+                        <th>Day of Month</th>
+                        <th>Month</th>
+                        <th>Day of Week</th>
+                        <th>Command</th>
+                        <th>Sound</th>
+                        <th>Remove</th>
+                    </tr>
+                </thead>
+		<tbody>
+		    {% for alarm in scheduled %}
+		    <tr>
+			{% for entry in alarm[:7] %}
+
+			    <td>{{ entry }}</td>
+			{% endfor %}
+
+		    </tr>
+
+		    {% endfor %}
+
+		</tbody>
+
+            </table>
+		</div>
+		<div class="newalarms tab-pane" id="new-alarms">
+            <input type="checkbox" id="M">Monday</input>
+            <input type="checkbox" id="T">Tuesday</input>
+            <input type="checkbox" id="W">Wednesday</input>
+            <input type="checkbox" id="R">Thursday</input>
+            <input type="checkbox" id="F">Friday</input>
+            <input type="checkbox" id="S">Saturday</input>
+            <input type="checkbox" id="U">Sunday</input>
+            <input type="time" id="ATIME" value="08:00:00">Time</input>
+            <select id="sounds">
+                {% for sound in sounds %}
+                    <option value="{{ sound }}">{{ sound }}</option>
+                {% endfor %}
+            </select>
+            <button id="newbutton">Add</button>
+		</div>
+	</div>
+
+        <script type="text/javascript" src="/js/jquery-2.1.1.min.js"></script>
+        <script type="text/javascript" src="/js/alarm.js"></script>
+        <script type="text/javascript" src="/js/running.js"></script>
+        <script type="text/javascript" src="/js/full.js"></script>
+	<script type="text/javascript" src="/js/bootstrap.js"></script>
+    </body>
+</html>
